@@ -132,7 +132,7 @@ namespace RestaurantManager.Services
             }
             catch
             {
-                // Fallback якщо немає підключення до БД
+                
             }
         }
     }

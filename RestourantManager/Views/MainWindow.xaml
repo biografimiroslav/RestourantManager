@@ -9,7 +9,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!-- Шапка -->
+
         <DockPanel Grid.Row="0" Margin="0,0,0,20">
             <TextBlock Text="План залу (Оберіть стіл)" 
                        Foreground="White" FontSize="22" FontWeight="Bold" 
@@ -23,7 +23,6 @@
             </StackPanel>
         </DockPanel>
 
-        <!-- Сітка столів -->
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
             <WrapPanel x:Name="TablesPanel" Orientation="Horizontal" HorizontalAlignment="Center"/>
         </ScrollViewer>
