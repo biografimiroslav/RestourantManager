@@ -36,7 +36,6 @@ namespace RestaurantManager.Views
 
             TxtTableTitle.Text = $"{table.Name} ({table.Seats} місць)";
 
-            // Отримуємо існуюче активне замовлення або створюємо новий порожній об'єкт (без зміни статусу столу на цьому етапі)
             _currentOrder = _orderService.GetOrCreateActiveOrder(_tableId);
 
             _allDishes = _orderService.GetAllDishes();
@@ -128,8 +127,6 @@ namespace RestaurantManager.Views
 
         private void OnWindowClosing()
         {
-            // Якщо користувач закрив вікно і нічого не замовив — видаляємо порожнє замовлення,
-            // щоб стіл випадково не став "зайнятим" (червоним)
             _orderService.CleanEmptyOrders();
         }
 

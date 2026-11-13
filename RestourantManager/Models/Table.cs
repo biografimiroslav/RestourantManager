@@ -9,11 +9,10 @@ namespace RestaurantManager.Models
     public class Table
     {
         public int Id { get; set; }
-        public string Name { get; set; } = string.Empty; // Напр. "Стіл №1"
+        public string Name { get; set; } = string.Empty; 
         public int Seats { get; set; }                   // Кількість місць
-        public bool IsOccupied { get; set; }             // true = зайнятий, false = вільний
+        public bool IsOccupied { get; set; }             // true - зайнятий, false - вільний
 
-        // Допоміжні властивості для сумісності з OrderWindow
         public int TableNumber => Id;
         public int Capacity => Seats;
         public string StatusDisplay => IsOccupied ? "Зайнятий" : "Вільний";

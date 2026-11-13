@@ -20,19 +20,15 @@ namespace RestaurantManager.Services
             }
             catch
             {
-                // Fallback у разі тимчасової відсутності зв'язку з LocalDB
                 tables = new List<Table>
                 {
-                    new Table { Id = 1, Name = "Стіл №1", Seats = 2, IsOccupied = false },
-                    new Table { Id = 2, Name = "Стіл №2", Seats = 4, IsOccupied = false },
-                    new Table { Id = 3, Name = "Стіл №3", Seats = 4, IsOccupied = false },
-                    new Table { Id = 4, Name = "Стіл №4", Seats = 6, IsOccupied = false }
+                    new Table { Id = 1, Name = "Стіл 1", Seats = 2, IsOccupied = false },
+                    new Table { Id = 2, Name = "Стіл 2", Seats = 4, IsOccupied = false },
+                    new Table { Id = 3, Name = "Стіл 3", Seats = 4, IsOccupied = false },
+                    new Table { Id = 4, Name = "Стіл 4", Seats = 6, IsOccupied = false }
                 };
             }
 
-            // Статус столу строго синхронізується з наявністю страв у активному чеку:
-            // Є страви в активному замовленні -> червоний (зайнятий)
-            // Немає страв або замовлення оплачено -> зелений (вільний)
             foreach (var table in tables)
             {
                 var activeOrder = OrderService.Instance.GetActiveOrderByTableId(table.Id);
