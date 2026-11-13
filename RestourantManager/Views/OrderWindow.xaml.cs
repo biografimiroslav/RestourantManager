@@ -8,6 +8,7 @@ using RestaurantManager.Services;
 
 namespace RestaurantManager.Views
 {
+
     public partial class OrderWindow : Window
     {
         private readonly int _tableId;
