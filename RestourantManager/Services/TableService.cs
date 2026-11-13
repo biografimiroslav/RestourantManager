@@ -6,5 +6,6 @@ namespace RestourantManager.Services
 {
     internal class TableService
     {
+
     }
 }
