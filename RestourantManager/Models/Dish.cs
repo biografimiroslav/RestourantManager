@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace RestourantManager.Models
+namespace RestaurantManager.Models
 {
-    internal class Dish
+    public class Dish
     {
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public decimal Price { get; set; }
+        public string CategoryName { get; set; } = string.Empty;
     }
 }

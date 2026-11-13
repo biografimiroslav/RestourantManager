@@ -1,12 +1,31 @@
-﻿<Window x:Class="RestourantManager.Views.MainWindow"
+<Window x:Class="RestaurantManager.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:RestourantManager.Views"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="Restaurant Manager — Зал" Height="550" Width="850"
+        WindowStartupLocation="CenterScreen" Background="#1E1E2E">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Шапка -->
+        <DockPanel Grid.Row="0" Margin="0,0,0,20">
+            <TextBlock Text="План залу (Оберіть стіл)" 
+                       Foreground="White" FontSize="22" FontWeight="Bold" 
+                       VerticalAlignment="Center"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Content="Кухня" Click="OpenKitchen_Click" 
+                        Padding="15,8" Margin="0,0,10,0" Background="#313244" Foreground="White" BorderThickness="0"/>
+                <Button Content="Адмінка" Click="OpenAdmin_Click" 
+                        Padding="15,8" Background="#313244" Foreground="White" BorderThickness="0"/>
+            </StackPanel>
+        </DockPanel>
+
+        <!-- Сітка столів -->
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <WrapPanel x:Name="TablesPanel" Orientation="Horizontal" HorizontalAlignment="Center"/>
+        </ScrollViewer>
     </Grid>
 </Window>
