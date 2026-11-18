@@ -34,8 +34,8 @@ namespace RestaurantManager.Views
                     FontWeight = FontWeights.SemiBold,
                     BorderThickness = new Thickness(0),
                     Background = table.IsOccupied
-                        ? new SolidColorBrush(Color.FromRgb(210, 65, 80))   // Червоний — зайнятий
-                        : new SolidColorBrush(Color.FromRgb(55, 165, 105)), // Зелений — вільний
+                        ? new SolidColorBrush(Color.FromRgb(210, 65, 80))
+                        : new SolidColorBrush(Color.FromRgb(55, 165, 105)),
                     Content = $"{table.Name}\n({table.Seats} місць)\n[{(table.IsOccupied ? "Зайнятий" : "Вільний")}]"
                 };
 
@@ -48,7 +48,6 @@ namespace RestaurantManager.Views
         {
             if (sender is Button btn && btn.Tag is Table selectedTable)
             {
-                // Передаємо Id обраного столу у вікно замовлення
                 var orderWindow = new OrderWindow(selectedTable.Id);
                 orderWindow.Title = $"Замовлення — {selectedTable.Name} ({(selectedTable.IsOccupied ? "Активний чек" : "Нове замовлення")})";
                 orderWindow.ShowDialog();

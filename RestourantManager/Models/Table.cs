@@ -10,8 +10,8 @@ namespace RestaurantManager.Models
     {
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty; 
-        public int Seats { get; set; }                   // Кількість місць
-        public bool IsOccupied { get; set; }             // true - зайнятий, false - вільний
+        public int Seats { get; set; }
+        public bool IsOccupied { get; set; }
 
         public int TableNumber => Id;
         public int Capacity => Seats;

@@ -11,7 +11,6 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <!-- Шапка -->
         <DockPanel Grid.Row="0" Margin="0,0,0,15">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                 <TextBlock x:Name="TxtTableTitle" Text="Стіл №1 (4 місця)" FontSize="20" FontWeight="Bold"/>
@@ -21,7 +20,6 @@
                     Padding="12,6" Background="#313244" Foreground="White" BorderThickness="0" HorizontalAlignment="Right"/>
         </DockPanel>
 
-        <!-- Основна зона: Меню та Чек -->
         <Grid Grid.Row="1" Margin="0,0,0,15">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
@@ -75,10 +73,7 @@
 
                     <DockPanel Grid.Row="0" Margin="0,0,0,10">
                         <TextBlock Text="Замовлені страви" FontSize="15" FontWeight="Bold"/>
-
                     </DockPanel>
-
-
 
                     <ListBox x:Name="LvOrderItems" Grid.Row="1" Background="Transparent" BorderThickness="0"
                              HorizontalContentAlignment="Stretch" SelectionChanged="LvOrderItems_SelectionChanged">
@@ -115,7 +110,6 @@
             </Border>
         </Grid>
 
-        <!-- Підвал -->
         <DockPanel Grid.Row="2"  LastChildFill="False">
             <StackPanel DockPanel.Dock="Left" Orientation="Horizontal" VerticalAlignment="Center" Margin="12,10">
                 <TextBlock Text="Разом до оплати: " FontSize="16" VerticalAlignment="Center"/>

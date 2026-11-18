@@ -14,7 +14,6 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <!-- Шапка -->
         <DockPanel Grid.Row="0" Margin="0,0,0,15">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                 <TextBlock Text="Керування меню ресторану" FontSize="20" FontWeight="Bold" Foreground="White"/>
@@ -24,7 +23,6 @@
                     Padding="12,6" Background="#313244" Foreground="White" BorderThickness="0"/>
         </DockPanel>
 
-        <!-- Основна зона: Таблиця страв у стилі карток/панелей -->
         <Border Grid.Row="1" Background="#262738" Padding="10" Margin="0,0,0,15">
             <Grid>
                 <Grid.RowDefinitions>
@@ -35,7 +33,6 @@
                 <TextBlock Text="Список страв (двічі клікніть по комірці для редагування назви, категорії чи ціни)" 
                            FontSize="13" Foreground="#A6ADC8" Margin="0,0,0,10"/>
 
-                <!-- DataGrid -->
                 <DataGrid x:Name="DishesGrid" Grid.Row="1" 
                           AutoGenerateColumns="False" 
                           CanUserAddRows="False"
@@ -58,7 +55,6 @@
             </Grid>
         </Border>
 
-        <!-- Підвал / Панель додавання та видалення -->
         <Border Grid.Row="2" Background="#262738" Padding="12">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -66,7 +62,6 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
-                <!-- Поля введення нової страви -->
                 <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
                     <StackPanel Margin="0,0,15,0">
                         <TextBlock Text="Назва:" Foreground="#A6ADC8" FontSize="11" Margin="0,0,0,3"/>
@@ -90,7 +85,6 @@
                             Background="#45475A" Foreground="White" BorderThickness="0" Click="AddButton_Click"/>
                 </StackPanel>
 
-                <!-- Кнопка видалення справа -->
                 <StackPanel Grid.Column="1" VerticalAlignment="Center">
                     <TextBlock Text=" " FontSize="11" Margin="0,0,0,3"/>
                     <Button Content="Видалити обрану" Width="130" Height="28" 

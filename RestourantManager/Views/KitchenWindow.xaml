@@ -21,7 +21,6 @@
             </StackPanel>
         </DockPanel>
 
-        <!-- Список страв у черзі -->
         <Border Grid.Row="1" Background="#262738" Padding="10">
             <ListBox x:Name="LvKitchenItems" Background="Transparent" BorderThickness="0" HorizontalContentAlignment="Stretch">
                 <ListBox.ItemTemplate>
@@ -36,23 +35,18 @@
                                     <ColumnDefinition Width="110"/>
                                 </Grid.ColumnDefinitions>
 
-                                <!-- Номер столу -->
                                 <TextBlock Grid.Column="0" Text="{Binding TableId, StringFormat=Стіл №{0}}" 
                                            Foreground="#89B4FA" FontWeight="Bold" VerticalAlignment="Center" FontSize="14"/>
 
-                                <!-- Назва страви -->
                                 <TextBlock Grid.Column="1" Text="{Binding DishName}" 
                                            Foreground="White" FontWeight="SemiBold" VerticalAlignment="Center" FontSize="15"/>
 
-                                <!-- Кількість -->
                                 <TextBlock Grid.Column="2" Text="{Binding Quantity, StringFormat={}{0} шт.}" 
                                            Foreground="#A6ADC8" VerticalAlignment="Center" FontSize="14"/>
 
-                                <!-- Статус -->
                                 <TextBlock Grid.Column="3" Text="{Binding StatusDisplay}" 
                                            Foreground="#F9E2AF" FontWeight="Bold" VerticalAlignment="Center" FontSize="14"/>
 
-                                <!-- Готово -->
                                 <Button Grid.Column="4" Content="Готово" Click="BtnReady_Click"
                                         Tag="{Binding}" Padding="10,6" Background="#313244" Foreground="#A6E3A1" BorderThickness="0"/>
                             </Grid>

@@ -1,6 +1,7 @@
 using RestaurantManager.Data;
 using RestaurantManager.Models;
 using RestourantManager.Models;
+using RestourantManager.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,17 +40,7 @@ namespace RestaurantManager.Services
 
         public List<Dish> GetAllDishes()
         {
-            return new List<Dish>
-            {
-                new Dish { Id = 1, Name = "Борщ український", Price = 140, CategoryName = "Перші страви" },
-                new Dish { Id = 2, Name = "Вареники з картоплею", Price = 110, CategoryName = "Гарячі страви" },
-                new Dish { Id = 3, Name = "Деруни зі сметаною", Price = 120, CategoryName = "Гарячі страви" },
-                new Dish { Id = 4, Name = "Салат Цезар", Price = 180, CategoryName = "Салати" },
-                new Dish { Id = 5, Name = "Стейк з лосося", Price = 320, CategoryName = "Гарячі страви" },
-                new Dish { Id = 6, Name = "Капучино", Price = 60, CategoryName = "Напої" },
-                new Dish { Id = 7, Name = "Узвар", Price = 35, CategoryName = "Напої" },
-                new Dish { Id = 8, Name = "Чізкейк", Price = 115, CategoryName = "Десерти" }
-            };
+            return DishService.instance.GetAllDishes();
         }
 
         public void AddDishToOrder(int orderId, Dish dish)
@@ -137,7 +128,6 @@ namespace RestaurantManager.Services
             }
         }
 
-        // shalavylo add
         public List<KitchenDishItem> GetKitchenQueue()
         {
             return _orders.Where(o => o.Status == OrderStatus.Active)
@@ -149,7 +139,7 @@ namespace RestaurantManager.Services
                     DishName = i.DishName,
                     Quantity = i.Quantity,
                     isReady = i.IsReady
-                })).OrderBy(o => o.isReady).ToList();   // Спочатку ті, що "В черзі", знизу — "Готово"
+                })).OrderBy(o => o.isReady).ToList();
         }
 
         public void MarkDishAsReady(int orderId, int orderItemId)
