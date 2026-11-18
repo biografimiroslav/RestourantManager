@@ -1,8 +1,9 @@
+using RestaurantManager.Data;
+using RestaurantManager.Models;
+using RestourantManager.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using RestaurantManager.Data;
-using RestaurantManager.Models;
 
 namespace RestaurantManager.Services
 {
@@ -133,6 +134,31 @@ namespace RestaurantManager.Services
             catch
             {
                 
+            }
+        }
+
+        // shalavylo add
+        public List<KitchenDishItem> GetKitchenQueue()
+        {
+            return _orders.Where(o => o.Status == OrderStatus.Active)
+                .SelectMany(o => o.Items.Select(i => new KitchenDishItem
+                {
+                    OrderId = o.Id,
+                    TableId = o.TableId,
+                    OrderItemId = i.Id,
+                    DishName = i.DishName,
+                    Quantity = i.Quantity,
+                    isReady = i.IsReady
+                })).OrderBy(o => o.isReady).ToList();   // Спочатку ті, що "В черзі", знизу — "Готово"
+        }
+
+        public void MarkDishAsReady(int orderId, int orderItemId)
+        {
+            var order = _orders.FirstOrDefault(o => o.Id == orderId);
+            var item = order?.Items.FirstOrDefault(o => o.Id == orderItemId);
+            if(item != null)
+            {
+                item.IsReady = true;
             }
         }
     }

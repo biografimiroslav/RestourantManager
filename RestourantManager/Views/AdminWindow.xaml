@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:RestourantManager.Views"
+        xmlns:local="clr-namespace:RestaurantManager.Views"
         mc:Ignorable="d"
         Title="Панель адміністратора — Меню" Height="450" Width="800"
         WindowStartupLocation="CenterScreen" Background="#1E1E2E">
@@ -19,6 +19,9 @@
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                 <TextBlock Text="Керування меню ресторану" FontSize="20" FontWeight="Bold" Foreground="White"/>
             </StackPanel>
+
+            <Button Content="← Назад до залу" Click="BtnBackToMain_Click" HorizontalAlignment="Right"
+                    Padding="12,6" Background="#313244" Foreground="White" BorderThickness="0"/>
         </DockPanel>
 
         <!-- Основна зона: Таблиця страв у стилі карток/панелей -->
@@ -90,7 +93,6 @@
                 <!-- Кнопка видалення справа -->
                 <StackPanel Grid.Column="1" VerticalAlignment="Center">
                     <TextBlock Text=" " FontSize="11" Margin="0,0,0,3"/>
-                    <!-- Для вирівнювання по висоті з полями -->
                     <Button Content="Видалити обрану" Width="130" Height="28" 
                             Background="#453134" Foreground="#F38BA8" BorderThickness="0" Click="DeleteButton_Click"/>
                 </StackPanel>

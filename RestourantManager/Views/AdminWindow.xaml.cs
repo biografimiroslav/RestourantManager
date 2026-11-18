@@ -1,10 +1,11 @@
-﻿using RestourantManager.Models;
+﻿using RestaurantManager.Models;
 using RestourantManager.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace RestaurantManager.Views
 {
@@ -30,7 +31,7 @@ namespace RestaurantManager.Views
                 return;
             }
 
-            if(decimal.TryParse(PriceBox.Text.Replace('.','.'), out decimal price) || price <= 0)
+            if(!decimal.TryParse(PriceBox.Text.Replace('.',','), out decimal price) || price <= 0)
             {
                 MessageBox.Show("Введіть коректну ціну (число більше 0)!", "Помилка", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
@@ -61,7 +62,11 @@ namespace RestaurantManager.Views
             }
         }
 
-        // Автоматичне збереження зміни у файл
+        private void BtnBackToMain_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
         private void DishesGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
             Dispatcher.BeginInvoke(() => DishService.instance.SaveDishes());

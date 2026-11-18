@@ -9,5 +9,9 @@ namespace RestaurantManager.Models
         public decimal UnitPrice { get; set; }
         public int Quantity { get; set; } = 1;
         public decimal TotalPrice => UnitPrice * Quantity;
+
+        // shalavylo add
+        public bool IsReady { get; set; } = false;
+        public string KitchenStatus => IsReady ? "Готово" : "В черзі";
     }
 }
