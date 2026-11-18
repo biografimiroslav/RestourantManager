@@ -7,6 +7,11 @@ namespace RestaurantManager.Data
     {
         public DbSet<Table> Tables { get; set; }
 
+namespace RestourantManager.Data
+{
+    internal class RestaurantDbContext
+    {
+    
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=RestaurantManagerDb;Trusted_Connection=True;");
