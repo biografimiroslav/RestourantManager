@@ -1,25 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using RestaurantManager.Services;
+using RestourantManager.Models;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
-namespace RestourantManager.Views
+namespace RestaurantManager.Views
 {
-    /// <summary>
-    /// Interaction logic for KitchenWindow.xaml
-    /// </summary>
     public partial class KitchenWindow : Window
     {
         public KitchenWindow()
         {
             InitializeComponent();
+            LoadQueue();
+        }
+
+        private void LoadQueue()
+        {
+            LvKitchenItems.ItemsSource = OrderService.Instance.GetKitchenQueue();
+        }
+
+        private void BtnRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            LoadQueue();
+        }
+
+        private void BtnReady_Click(object sender, RoutedEventArgs e)
+        {
+            if(sender is Button btn && btn.Tag is KitchenDishItem item)
+            {
+                if (item.isReady)
+                    return;
+
+                OrderService.Instance.MarkDishAsReady(item.OrderId, item.OrderItemId);
+                LoadQueue();
+            }
+        }
+
+        private void BtnBackToMain_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace RestourantManager.Models
+namespace RestaurantManager.Models
 {
-    internal class Category
+    public class Category
     {
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
     }
 }
